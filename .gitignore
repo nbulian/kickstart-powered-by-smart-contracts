@@ -3,6 +3,7 @@
 /.pnp
 .pnp.js
 .next
+/ethereum/build/
 
 # testing
 /coverage
