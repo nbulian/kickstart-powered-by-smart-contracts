@@ -17,6 +17,16 @@ npm i
 ## Running some test for our contract
 Just execute from the root project "test"
 
+## Compiling contract
+From the project root folder, just run: node ethereum/compile.js
+
+It will create a a folder called "build" inside the ethereum folder with the following contracts files in json.
+
+CampaignFactory.json
+Campaign.json
+
+Now it time to deploy our contracts to the blockchain.
+
 ## Deploying contract
 From the project root folder, just run: node ethereum/deploy.js
 
@@ -25,6 +35,7 @@ Attempting to deploy from account 0x1546c1A8dFdC6F9B579BA4D6e5e937724A234f64
 Contract deployed to 0x5a0cE10C34fA2cA51E37FF382250bD85b2b2A129
 
 * it can take a couple or more minutes to execute.
+* remember to use the "Contract deployed" address into your .env variable called NEXT_PUBLIC_FACTORY_CONTRACT_ADDRESS
 
 ## Runnig our project
 In your console inside your project root folder run:

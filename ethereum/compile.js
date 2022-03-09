@@ -7,13 +7,13 @@ fs.removeSync(buildPath);
 
 const campaignPath = path.resolve(__dirname, 'contracts', 'Campaign.sol');
 const source = fs.readFileSync(campaignPath, 'utf-8');
-const output = solc.compile(source, 1).contracts;
+const output = solc.compile(source, 1);
 
 fs.ensureDirSync(buildPath);
 
-for (let contract in output) {
+for (let contract in output['contracts']) {
     fs.outputJsonSync(
         path.resolve(buildPath, contract.replace(':', '') + '.json'),
-        output[contract]
+        output['contracts'][contract]
     );
 }
