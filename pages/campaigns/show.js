@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Grid } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Campaign from '../../ethereum/campaign';
 import web3 from '../../ethereum/web3';
+import ContributeForm from '../../components/ContributeForm';
 
 class CampaignShow extends Component {
 
@@ -12,6 +13,7 @@ class CampaignShow extends Component {
         const summary = await campaign.methods.getSummary().call();
 
         return {
+            address: props.query.address,
             minimumContribution: summary[0],
             balance: summary[1],
             requestsCount: summary[2],
@@ -66,7 +68,14 @@ class CampaignShow extends Component {
         return (
             <Layout>
                 <h1>Show Campaign</h1>
-                {this.renderCards()}
+                <Grid>
+                    <Grid.Column width={"10"}>
+                        {this.renderCards()}
+                    </Grid.Column>
+                    <Grid.Column width={"6"}>
+                        <ContributeForm address={this.props.address} />
+                    </Grid.Column>
+                </Grid>
             </Layout>
         )
     };
